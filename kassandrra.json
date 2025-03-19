@@ -1,11 +1,11 @@
 {
   "type": "micro",
-  "wake_word": "Kassandrra", 
+  "wake_word": "Kassandrra",
   "author": "Baranchic",
   "website": "https://github.com/Baranchic/cassandra",
-  "model": "https://github.com/Baranchic/cassandra/raw/refs/heads/main/kassandrra.tflite",
-  "trained_languages": ["en"], 
-  "version": 1,
+  "model": "kassandrra.tflite",
+  "trained_languages": ["en"],
+  "version": 2,
   "micro": {
     "probability_cutoff": 0.97,
     "feature_step_size": 10,
