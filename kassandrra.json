@@ -1,16 +1,16 @@
 {
   "type": "micro",
-  "wake_word": "Kassandrra",  # Nahraď za skutočné wake word, ktoré tvoj model detekuje
+  "wake_word": "Kassandrra",
   "author": "Baranchic",
   "website": "https://github.com/Baranchic/cassandra",
   "model": "https://github.com/Baranchic/cassandra/raw/refs/heads/main/kassandrra.tflite",
-  "trained_languages": ["en"],  # Ak je to po anglicky, nechaj "en"; ak iný jazyk, napr. "sk"
+  "trained_languages": ["en"],
   "version": 1,
   "micro": {
-    "probability_cutoff": 0.97,  # Rovnaké ako pri hey_jarvis – pravdepodobnosť detekcie
+    "probability_cutoff": 0.97,
     "feature_step_size": 10,
     "sliding_window_size": 5,
-    "tensor_arena_size": 22860,  # Rovnaké ako hey_jarvis; ak model zlyhá, môžeme to zväčšiť
+    "tensor_arena_size": 22860,
     "minimum_esphome_version": "2024.7.0"
   }
 }
