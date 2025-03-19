@@ -1,4 +1,4 @@
 {
-  "name": "kassandrra",
-  "model": "https://github.com/Baranchic/cassandra/raw/refs/heads/main/kassandrra.tflite"
+  "version": "1.0",  # Môžeš si vybrať číslo verzie
+  "model_url": "https://github.com/Baranchic/cassandra/raw/refs/heads/main/kassandrra.tflite"
 }
