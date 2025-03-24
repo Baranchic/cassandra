@@ -3,7 +3,7 @@
   "wake_word": "kassandra_model_tiny",
   "author": "Baranchic",
   "website": "https://github.com/Baranchic/cassandra",
-  "model": "kassandra_model_tiny.tflite",
+  "model": "kassandra_model_streaming.tflite",
   "trained_languages": ["en"],
   "version": 2,
   "micro": {
