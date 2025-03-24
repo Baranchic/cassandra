@@ -1,6 +1,6 @@
 {
   "type": "micro",
-  "wake_word": "Kassandra",
+  "wake_word": "kassandra_model_tiny",
   "author": "Baranchic",
   "website": "https://github.com/Baranchic/cassandra",
   "model": "kassandra_model_tiny.tflite",
