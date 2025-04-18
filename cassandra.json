@@ -3,7 +3,7 @@
   "wake_word": "cassandra",
   "author": "Malo Chic",
   "website": "https://www.facebook.com/dnlbrnck/",
-  "model": "stream_state_internal_quant.tflite",
+  "model": "cassandra.tflite",
   "trained_languages": [
     "sk"
   ],
