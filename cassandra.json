@@ -1,11 +1,11 @@
 {
   "type": "micro",
-  "wake_word": "hey_norman",
-  "author": "master phooey",
-  "website": "https://github.com/MasterPhooey/MicroWakeWord-Trainer-Docker",
+  "wake_word": "cassandra",
+  "author": "Malo Chic",
+  "website": "https://www.facebook.com/dnlbrnck/",
   "model": "stream_state_internal_quant.tflite",
   "trained_languages": [
-    "en"
+    "sk"
   ],
   "version": 2,
   "micro": {
