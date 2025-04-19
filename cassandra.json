@@ -1,11 +1,11 @@
 {
   "type": "micro",
   "wake_word": "cassandra",
-  "author": "Malo Chic",
-  "website": "https://www.facebook.com/dnlbrnck/",
-  "model": "cassandra.tflite",
+  "author": "malo chic",
+  "website": "https://github.com/Baranchic/cassandra",
+  "model": "cassandra_v2.tflite",
   "trained_languages": [
-    "sk"
+    "en"
   ],
   "version": 2,
   "micro": {
