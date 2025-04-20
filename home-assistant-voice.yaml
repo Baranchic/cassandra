@@ -544,7 +544,7 @@ light:
         from: 0
         to: 6
     effects:
-- addressable_lambda:
+      - addressable_lambda:
           name: "Waiting for Command"
           update_interval: 30ms
           lambda: |-
