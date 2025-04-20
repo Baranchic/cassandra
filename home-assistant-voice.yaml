@@ -546,63 +546,55 @@ light:
     effects:
       - addressable_lambda:
           name: "Waiting for Command"
-          update_interval: 30ms
+          update_interval: 100ms
           lambda: |-
-            // Create breathing effect using sine wave
-            static uint16_t breathing_step = 0;
-            const uint16_t breathing_cycle = 200; // Higher number = slower breathing
-            if (initial_run) {
-              breathing_step = 0;
-            }
-            
-            // Calculate brightness multiplier using sine wave (0.0 to 1.0)
-            float brightness = (sin((float)breathing_step / breathing_cycle * M_PI) + 1.0) / 2.0;
-            
-            // Apply brightness to all LEDs
             auto light_color = id(led_ring).current_values;
             Color color(light_color.get_red() * 255, light_color.get_green() * 255,
                   light_color.get_blue() * 255);
-            
             for (int i = 0; i < 12; i++) {
-              // Apply the breathing effect to all LEDs
-              it[i] = color * (uint8_t)(brightness * 255);
+              if (i == id(global_led_animation_index) % 12) {
+                it[i] = color;
+              } else if (i == (id(global_led_animation_index) + 11) % 12) {
+                it[i] = color * 192;
+              } else if (i == (id(global_led_animation_index) + 10) % 12) {
+                it[i] = color * 128;
+              } else if (i == (id(global_led_animation_index) + 6) % 12) {
+                it[i] = color;
+              } else if (i == (id(global_led_animation_index) + 5) % 12) {
+                it[i] = color * 192;
+              } else if (i == (id(global_led_animation_index) + 4) % 12) {
+                it[i] = color * 128;
+              } else {
+                it[i] = Color::BLACK;
+              }
             }
-            
-            // Increment breathing step and loop back to start when cycle completes
-            breathing_step = (breathing_step + 1) % breathing_cycle;
-            
-            // Keep the animation index updated for compatibility with other code
             id(global_led_animation_index) = (id(global_led_animation_index) + 1) % 12;
       - addressable_lambda:
           name: "Listening For Command"
           update_interval: 50ms
           lambda: |-
-            // Create breathing effect using sine wave
-            static uint16_t breathing_step = 0;
-            const uint16_t breathing_cycle = 200; // Higher number = slower breathing
-            if (initial_run) {
-              breathing_step = 0;
-            }
-            
-            // Calculate brightness multiplier using sine wave (0.0 to 1.0)
-            float brightness = (sin((float)breathing_step / breathing_cycle * M_PI) + 1.0) / 2.0;
-            
-            // Apply brightness to all LEDs
             auto light_color = id(led_ring).current_values;
             Color color(light_color.get_red() * 255, light_color.get_green() * 255,
                   light_color.get_blue() * 255);
-            
             for (int i = 0; i < 12; i++) {
-              // Apply the breathing effect to all LEDs
-              it[i] = color * (uint8_t)(brightness * 255);
+              if (i == id(global_led_animation_index) % 12) {
+                it[i] = color;
+              } else if (i == (id(global_led_animation_index) + 11) % 12) {
+                it[i] = color * 192;
+              } else if (i == (id(global_led_animation_index) + 10) % 12) {
+                it[i] = color * 128;
+              } else if (i == (id(global_led_animation_index) + 6) % 12) {
+                it[i] = color;
+              } else if (i == (id(global_led_animation_index) + 5) % 12) {
+                it[i] = color * 192;
+              } else if (i == (id(global_led_animation_index) + 4) % 12) {
+                it[i] = color * 128;
+              } else {
+                it[i] = Color::BLACK;
+              }
             }
-            
-            // Increment breathing step and loop back to start when cycle completes
-            breathing_step = (breathing_step + 1) % breathing_cycle;
-            
-            // Keep the animation index updated for compatibility with other code
             id(global_led_animation_index) = (id(global_led_animation_index) + 1) % 12;
-      - addressable_lambda:
+- addressable_lambda:
           name: "Thinking"
           update_interval: 10ms
           lambda: |-
@@ -616,14 +608,9 @@ light:
             auto light_color = id(led_ring).current_values;
             Color color(light_color.get_red() * 255, light_color.get_green() * 255,
                   light_color.get_blue() * 255);
+            // Apply breathing effect to all LEDs
             for (int i = 0; i < 12; i++) {
-              if (i == id(global_led_animation_index) % 12) {
-                it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
-              } else if (i == (id(global_led_animation_index) + 6) % 12) {
-                it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
-              } else {
-                it[i] = Color::BLACK;
-              }
+              it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
             }
             if (brightness_decreasing) {
               brightness_step++;
