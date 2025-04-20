@@ -608,7 +608,6 @@ light:
             auto light_color = id(led_ring).current_values;
             Color color(light_color.get_red() * 255, light_color.get_green() * 255,
                   light_color.get_blue() * 255);
-            // Apply breathing effect to all LEDs
             for (int i = 0; i < 12; i++) {
               it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
             }
