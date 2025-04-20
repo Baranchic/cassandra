@@ -1548,9 +1548,9 @@ micro_wake_word:
   id: mww
   models:
     - model: https://github.com/esphome/micro-wake-word-models/raw/refs/heads/main/models/v2/alexa.json
-      id: Alexa
+      id: alexa
     - model: https://github.com/Baranchic/cassandra/releases/download/v2/cassandra_v2.json
-      id: Cassandra
+      id: cassandra
     - model: https://github.com/kahrendt/microWakeWord/releases/download/okay_nabu_20241226.3/okay_nabu.json
       id: okay_nabu
     - model: hey_jarvis
