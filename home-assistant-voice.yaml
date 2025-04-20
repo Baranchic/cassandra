@@ -636,15 +636,15 @@ light:
             for (int i = 0; i < 12; i++) {
               if (i == (id(global_led_animation_index)) % 12) {
                 it[i] = color;
-              } else if (i == ( id(global_led_animation_index) + 1) % 2) {
+              } else if (i == ( id(global_led_animation_index) + 1) % 12) {
                 it[i] = color * 192;
-              } else if (i == ( id(global_led_animation_index) + 2) % 2) {
+              } else if (i == ( id(global_led_animation_index) + 2) % 12) {
                 it[i] = color * 128;
-              } else if (i == ( id(global_led_animation_index) + 6) % 2) {
+              } else if (i == ( id(global_led_animation_index) + 6) % 12) {
                 it[i] = color;
-              } else if (i == ( id(global_led_animation_index) + 7) % 2) {
+              } else if (i == ( id(global_led_animation_index) + 7) % 12) {
                 it[i] = color * 192;
-              } else if (i == ( id(global_led_animation_index) + 8) % 2) {
+              } else if (i == ( id(global_led_animation_index) + 8) % 12) {
                 it[i] = color * 128;
               } else {
                 it[i] = Color::BLACK;
@@ -1448,7 +1448,7 @@ media_player:
     internal: False
     volume_increment: 0.05
     volume_min: 0.4
-    volume_max: 0.85
+    volume_max: 0.99
     announcement_pipeline:
       speaker: announcement_resampling_speaker
       format: FLAC     # FLAC is the least processor intensive codec
@@ -1547,12 +1547,14 @@ audio_dac:
 micro_wake_word:
   id: mww
   models:
+    - model: https://github.com/esphome/micro-wake-word-models/raw/refs/heads/main/models/v2/alexa.json
+      id: Alexa
+    - model: https://github.com/Baranchic/cassandra/releases/download/v2/cassandra_v2.json
+      id: Cassandra
     - model: https://github.com/kahrendt/microWakeWord/releases/download/okay_nabu_20241226.3/okay_nabu.json
       id: okay_nabu
     - model: hey_jarvis
       id: hey_jarvis
-    - model: hey_mycroft
-      id: hey_mycroft
     - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
       id: stop
       internal: true
